@@ -1,1185 +1,917 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
-
 <meta charset="UTF-8">
-
 <!-- Mobile Friendly -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
 
 
-
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-  font-family:'Segoe UI', sans-serif;
-  direction:rtl;
-  margin:0;
-  background:#f4f7f6;
-}
-
-/* =========================
-   🌟 PROFESSIONAL NAVBAR
-========================= */
-
-.header{
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:1000;
-  background:linear-gradient(90deg,#000000,#1a1a1a);
-  box-shadow:0 2px 10px rgba(0,0,0,0.15);
-  padding:8px 30px;
-}
-
-.header-inner{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-/* Logo area */
-.logo-title{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.logo{
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  border:2px solid white;
-}
-
-/* Nav links */
-.navbar{
-  display:flex;
-  gap:22px;
-  align-items:center;
-}
-
-.navbar a{
-  color:white;
-  text-decoration:none;
-  font-size:15px;
-  font-weight:500;
-  transition:.3s;
-}
-
-.navbar a:hover{
-  color:#ffd700;
-  transform:translateY(-1px);
-}
-
-/* Appointment Button */
-.btn{
-  background:#ffd700;
-  color:#000 !important;
-  padding:8px 16px;
-  border-radius:25px;
-  font-weight:bold;
-  box-shadow:0 3px 8px rgba(0,0,0,0.2);
-}
-
-.btn:hover{
-  background:#fff;
-}
-
-/* Hero */
-.hero{
-  position:relative;
-  overflow:hidden;
-  color:white;
-  text-align:center;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;   /* 👈 یہ بدلیں (center نہیں) */
-  align-items:center;
-
-  padding:0 20px;
-  min-height:100vh;
-  margin-top:80px;
-}
-
-/* 🎬 Video Background */
-.hero video{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position: center 80%;
-  z-index:-2;
-}
-.philo-footer{
-  position:absolute;
-  bottom:20px;
-  width:100%;
-  text-align:center;
-  z-index:5;
-  padding:10px;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
-.wa-mini-btn{
-  background:#25D366;
-  color:#fff;
-  text-decoration:none;
-  padding:10px 16px;
-  border-radius:30px;
-  font-size:15px;
-  font-weight:800;
-  box-shadow:0 4px 12px rgba(0,0,0,0.25);
-  transition:.3s;
-}
-
-.wa-mini-btn:hover{
-  transform:translateY(-2px);
-  background:#1ebe5d;
-}
-
-#philoText{
-  color:#ffd700;
-  font-size:26px;
-  font-weight:900;
-  text-shadow:0 2px 12px rgba(0,0,0,0.75);
-  transition:opacity 3s ease;
-}
-
-/* 🔳 Dark overlay تاکہ text صاف نظر آئے */
-.hero::after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.25);
-  z-index:-1;
-}
-
-/* ⭐ HERO REEL (اب یہی تبدیلی ہے) */
-/* ⭐ HERO REEL FIXED CENTER SLIDER */
-
-/* 🎬 REEL → Bottom Right Corner */
-.hero-reel{
-  position:absolute;
-  bottom:160px;
-  left:30px;
-  z-index:5;
-}
-
-.poster-track{
-  position:relative;
-  width:260px;
-  height:130px;
-}
-.poster-track img{
-  position:absolute;
-  top:5;
-  left:0;
-  width:400px;
-  height:165px;
-  object-fit:cover;
-  border-radius:10px;
-  box-shadow:0 3px 10px rgba(0,0,0,0.5);
-  opacity:0;
-  transition:opacity 2s ease;
-}
-
-.poster-track img.active{
-  opacity:1;
-}
-
-/* Layout */
-.container{
-  display:flex;
- 
-  gap:10px;
-}
-
-.sidebar{
-  width:200px;
-  flex-shrink:0;
-  padding:12px;
-  height:500vh;
-  overflow:auto;
-
-  background:linear-gradient(180deg,#0a7f5a,#065a40);
-  color:white;
-}
-
-.sidebar h3{
-  color:#ffd700;
-}
-
-.list-item{
-  padding:6px;
-  cursor:pointer;
-  color:white;
-}
-
-.list-item:hover{
-  background:rgba(255,215,0,0.15);
-  color:#ffd700;
-}
-.cards{
-  flex:1;
-  padding:15px;
-  max-width:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-/* Cards */
-.card{
-  width:100%;
-  max-width:880px;
-
-  background:linear-gradient(180deg,#e8f5f0,#ffffff);
-  border:2px solid #0a7f5a;
 
-  margin-bottom:15px;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+font-family:'Noto Naskh Arabic', serif;
 
-  display:flex;
-  align-items:center;
-}
-.card-content h3{
-  color:#b8860b;   /* dark gold */
-}
-
-.card-content p{
-  color:#333;
-}
-
-.card img{
-  width:400px;
-  height:300px;
-  object-fit:cover;
-}
-
-.card-content{ padding:10px; flex:1; }
-
-#detailSection{
-  display:none;
-  max-width:880px;
-  margin:auto;
-
-  background:linear-gradient(180deg,#ffffff,#e8f5f0);
-  border:2px solid #0a7f5a;
-
-  padding:15px;
-  border-radius:10px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
-
-button{
-  background:#0a7f5a;
-  color:white;
-  border:none;
-  padding:6px 10px;
-  cursor:pointer;
-  border-radius:5px;
-}
-
-.list-item{ padding:6px; cursor:pointer; }
-.list-item:hover{ background:#0a7f5a; color:white; }
-
-#detailBox img{
-  width:100%; /* پوری چوڑائی میں تصویر رکھیں */
-  max-width:300px; /* زیادہ بڑی تصویر نہ ہو */
-  height:auto;
-  object-fit:cover;
-  border-radius:10px;
-}
-
-#detailBox div{
-  width:100%; /* text پوری جگہ لے لے */
-}
-
-/* ============================= */
-/* 📱 MOBILE RESPONSIVE FIX */
-/* ============================= */
-@media(max-width:768px){
-
-/* HEADER FIX */
-.header{
-  padding:10px 15px;
-}
-
-.header-inner{
-  flex-direction:column;
-  align-items:center;
-  gap:10px;
-}
-
-/* LOGO + TITLE */
-.logo-title{
-  justify-content:center;
-  text-align:center;
-}
-
-.logo{
-  width:60px;
-  height:60px;
-}
-
-/* NAVBAR */
-.navbar{
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
-}
+background:
+linear-gradient(rgba(20,20,20,.85),rgba(20,20,20,.85)),
+url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1600&auto=format&fit=crop');
 
-.navbar a{
-  font-size:13px;
-}
-
-/* TAGLINE */
-.tagline{
-  display:none; /* mobile پر hide بہتر ہے */
-}
-
-/* HERO SECTION */
-.hero{
-  margin-top:100px;
-  padding:20px 10px;
-  min-height:auto;
-}
-
-/* HERO TEXT */
-.hero-text{
-  font-size:15px;
-  margin-top:20px;
-  line-height:1.8;
-}
-
-/* HERO TITLE */
-.hero h1{
-  font-size:22px;
-}
-
-/* SEARCH BOX */
-.search-box{
-  margin-top:15px;
-  width:100%;
-}
-
-.search-box input{
-  width:100%;
-  font-size:14px;
-  padding:10px;
-}
-
-/* 🎬 REEL FIX */
-.hero-reel{
-  position:relative;
-  bottom:auto;
-  left:auto;
-  margin-top:20px;
-}
+background-size:cover;
+background-position:center;
 
-.poster-track{
-  width:100%;
-  height:120px;
-}
-
-.poster-track img{
-  width:100%;
-  height:120px;
-}
-
-/* TICKER */
-.news-ticker{
-  bottom:0;
-}
-
-.ticker-track{
-  font-size:14px;
-}
+min-height:100vh;
+padding:30px;
+color:#fff;
 
-/* LAYOUT COLUMN */
-.container{
-  flex-direction:column;
 }
 
-/* SIDEBAR */
-.sidebar{
-  width:100%;
-  height:auto;
-  padding:10px;
+.topbar{
+max-width:850px;
+margin:0 auto 14px auto;
+display:flex;
+justify-content:flex-start;
 }
 
-/* CARDS */
-.cards{
-  width:100%;
-  padding:10px;
+.admin-btn{
+display:inline-block;
+padding:8px 16px;
+background:#ff9800;
+color:#fff;
+text-decoration:none;
+border-radius:10px;
+font-size:13px;
+font-weight:bold;
+transition:.3s;
 }
 
-/* CARD */
-.card{
-  flex-direction:column;
-  width:100%;
+.admin-btn:hover{
+transform:scale(1.04);
+background:#ffb340;
 }
 
-.card img{
-  width:100%;
-  height:180px;
+.main-card{
+max-width:850px;
+margin:auto;
+background:rgba(40,40,40,.35);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:24px;
+padding:22px;
+box-shadow:0 0 30px rgba(0,0,0,.35);
 }
 
-/* DETAIL */
-#detailSection{
-  width:100%;
+.title{
+font-size:32px;
+text-align:center;
+margin-bottom:12px;
+font-weight:bold;
+line-height:1.6;
 }
 
-/* FOOTER PHILO */
-.philo-footer{
-  bottom:10px;
-  flex-direction:column;
-  gap:8px;
+.subtitle{
+text-align:center;
+font-size:16px;
+line-height:1.9;
+margin-bottom:20px;
+color:#ddd;
 }
 
-#philoText{
-  font-size:16px;
-  text-align:center;
-}
-
-/* BUTTON FIX */
-button{
-  font-size:13px;
-  padding:5px 8px;
+.step{ display:none; }
+.active{ display:block; }
 
-
+.section-title{
+font-size:22px;
+margin-bottom:12px;
+color:#ffcf66;
+line-height:1.7;
 }
 
+.section-description{
+font-size:15px;
+line-height:1.9;
+margin-bottom:16px;
+color:#ddd;
 }
-
-/* FONT SIZE */
-.hero h1{font-size:24px;}
-h2{font-size:22px;}
 
-
-.hero h1{
-  margin-top:0px;
-   /* 👈 جتنا نیچے لانا ہو یہ بڑھا دیں */
-  font-size:42px;
-  line-height:1.4;
-}
-/* Navbar Tagline */
-/* Right side menu area */
-.menu-area{
-  display:flex;
-  align-items:center;
-  gap:20px;
+label{
+display:block;
+margin-top:10px;
+margin-bottom:5px;
+font-size:15px;
 }
 
-/* Golden Tagline */
-.tagline{
-  color:#ffd700;
-  font-size:15px;
-  font-weight:600;
-  white-space:nowrap;
-  border-right:1px solid rgba(255,255,255,0.2);
-  padding-right:15px;
+input,select{
+width:100%;
+padding:10px 12px;
+border:none;
+outline:none;
+border-radius:10px;
+background:rgba(255,255,255,.15);
+color:#fff;
+font-size:14px;
 }
-/* 🔍 Disease Search Box */
-.search-box{
-  position:relative;
-  margin-top:10px;
-  display:flex;
-  justify-content:center;
-  z-index:10;
-}
 
-.search-box input{
-  width:420px;
-  max-width:95%;
-  padding:12px 18px;
-  border-radius:30px;
-  border:none;
-  outline:none;
-  font-size:16px;
-  box-shadow:0 4px 15px rgba(0,0,0,0.25);
-  background:rgba(255,255,255,0.95);
-}
-/* =========================
-   RUNNING TICKER
-========================= */
+input::placeholder{ color:#ddd; }
+select option{ color:#000; }
 
-.news-ticker{
-  position:absolute;
-  bottom:80px;
-  width:100%;
-  overflow:hidden;
-  background:rgba(0,0,0,0.65);
-  padding:10px 0;
-  border-top:2px solid gold;
-  border-bottom:2px solid gold;
+.grid-2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
 }
 
-.ticker-track{
-  display:inline-block;
-  white-space:nowrap;
-  color:#fff;
-  font-size:18px;
-  font-weight:600;
-  direction:rtl;
-  unicode-bidi:plaintext;
-  animation:tickerMove 118s linear infinite;
+.parts-tabs{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-bottom:25px;
 }
 
-.ticker-track span{
-  margin-left:80px;
-  color:#ffd700;
+.part-btn{
+padding:7px 13px;
+border-radius:30px;
+background:rgba(255,255,255,.12);
+border:1px solid rgba(255,255,255,.15);
 cursor:pointer;
-transition:.1s;
-}
-.ticker-track span:hover{
-  color:#ffffff;
-  text-decoration:underline;
-}
-@keyframes tickerMove{
-  0%{transform:translateX(-15%);}
-  100%{transform:translateX(100%);}
-}
-/* HERO TEXT FIX */
-.hero-text{
-  color:#ffd700;
-  font-weight:700;
-  font-size:19px;
-  line-height:2;
-
-  margin-top:140px;   /* 👈 اصل فکس — نیچے لایا گیا */
-  max-width:750px;
-  text-align:center;
+font-size:12px;
+transition:.3s;
+line-height:1.5;
 }
 
-.philosophy-rotator{
-  position:absolute;
-  bottom:40px;    /* 👈 یہ footer لائن ہے */
-  left:50%;
-  transform:translateX(-50%);
-  width:100%;
-  margin-top:0;
-  z-index:5;
+.part-btn:hover{ background:#ff9800; }
 
-
-  text-shadow:0 2px 12px rgba(0,0,0,0.6);
-  letter-spacing:0.4px;
-  padding:10px 15px;
+.part-btn.active-tab{
+background:#ff9800;
+color:#fff;
 }
 
-.philosophy-rotator span{
-  display:inline-block;
-  animation:fadeText 1s ease-in-out;
+/* =========================
+DROPDOWN UI (COMPACT FIXED)
+========================= */
+
+.disease-box{
+margin-top:10px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+border-radius:12px;
+overflow:hidden;
 }
 
-@keyframes fadeText{
-  0%{opacity:0; transform:translateY(10px);}
-  100%{opacity:1; transform:translateY(0);}
-}
-.video-footer-philosophy{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  padding:18px 10px;
-  text-align:center;
-  background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);
-  z-index:4;
-}
-
-.video-footer-philosophy #philoText{
-  color:gold;
-  font-size:22px;
-  font-weight:800;
-  line-height:1.8;
+/* HEADER (more compact) */
+.dropdown-header{
+padding:10px 12px;
+cursor:pointer;
+background:rgba(255,255,255,.08);
+font-size:14px;
+font-weight:bold;
+display:flex;
+justify-content:space-between;
+align-items:center;
+transition:.25s;
 }
 
-
-/* 🔗 SOCIAL SHARE BAR */
-/* 🔗 SOCIAL SHARE BAR (NEW MOBILE FIXED) */
-
-.share-bar{
-  margin-top:30px;
-  padding:15px;
-  border-top:2px solid #e5e5e5;
-  text-align:center;
-  background:white;
+.dropdown-header:hover{
+background:rgba(255,152,0,.18);
 }
 
-.share-icons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  justify-content:center;
-  margin-top:10px;
+.dropdown-header span{
+font-size:16px;
 }
 
-.share-icons a{
-  padding:10px 14px;
-  border-radius:8px;
-  text-decoration:none;
-  color:white;
-  font-size:14px;
-  cursor:pointer;
+/* LIST (compact spacing) */
+.dropdown-list{
+display:none;
+max-height:260px;
+overflow-y:auto;
+padding:6px 8px;
+background:rgba(0,0,0,.12);
 }
 
-.wa{background:#25D366}
-.fb{background:#1877f2}
-.tw{background:#1da1f2}
-.tg{background:#229ED9}
-.copy{background:#555}
+.dropdown-list.show{
+display:block;
+}
 
-/* ⭐⭐ MOBILE FOOTER SHARE BAR */
+/* scrollbar */
+.dropdown-list::-webkit-scrollbar{
+width:5px;
+}
+
+.dropdown-list::-webkit-scrollbar-thumb{
+background:#ff9800;
+border-radius:10px;
+}
+
+/* ITEM (reduced spacing) */
+.checkbox-item{
+display:flex;
+align-items:center;
+gap:8px;
+padding:6px 6px;
+border-bottom:1px solid rgba(255,255,255,.06);
+font-size:13px;
+line-height:1.6;
+}
+
+.checkbox-item:last-child{
+border-bottom:none;
+}
+
+/* checkbox smaller */
+.checkbox-item input{
+width:16px;
+height:16px;
+accent-color:#ff9800;
+cursor:pointer;
+flex-shrink:0;
+}
+
+.checkbox-item label{
+margin:0;
+cursor:pointer;
+flex:1;
+}
+
+/* NAVIGATION */
+.navigation{
+margin-top:20px;
+display:flex;
+justify-content:space-between;
+gap:10px;
+}
+
+.next-btn,.prev-btn{
+padding:10px 18px;
+border:none;
+cursor:pointer;
+border-radius:10px;
+font-size:14px;
+font-weight:bold;
+}
+
+.next-btn{
+background:#ff9800;
+color:#fff;
+}
+
+.prev-btn{
+background:#555;
+color:#fff;
+}
+
+.loader{
+display:none;
+text-align:center;
+margin-top:20px;
+}
+
+.success{
+display:none;
+text-align:center;
+padding:50px 20px;
+}
+
+.success h2{
+font-size:35px;
+margin-bottom:20px;
+color:#00ff95;
+}
+
+.success p{
+font-size:20px;
+line-height:2;
+}
+
+/* MOBILE */
 @media(max-width:768px){
 
-  .share-bar{
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    z-index:9999;
-    box-shadow:0 -3px 12px rgba(0,0,0,0.2);
-  }
+body{ padding:12px; }
 
-  /* content footer کے پیچھے نہ چھپے */
-  #detailSection{
-    padding-bottom:120px;
-  }
+.main-card{
+padding:16px;
+border-radius:18px;
+}
+
+.topbar{ margin-bottom:10px; }
+
+.admin-btn{
+padding:7px 12px;
+font-size:11px;
+}
+
+.grid-2{
+grid-template-columns:1fr;
+gap:10px;
+}
+
+.title{ font-size:24px; }
+
+.subtitle{
+font-size:14px;
+line-height:1.8;
+}
+
+.section-title{ font-size:18px; }
+
+.section-description{ font-size:14px; }
+
+.part-btn{
+padding:6px 10px;
+font-size:11px;
+}
+
+/* compact dropdown mobile */
+.dropdown-header{
+font-size:13px;
+padding:9px 10px;
+}
+
+.checkbox-item{
+font-size:12px;
+padding:6px;
+}
+
+.next-btn,.prev-btn{
+padding:9px 14px;
+font-size:13px;
+}
+
+input,select{
+padding:9px 10px;
+font-size:13px;
+}
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- Header -->
-<div class="header">
-  <div class="header-inner">
 
-    <div class="logo-title">
-      <img class="logo" src="https://i.ibb.co/1YgnNKZ9/K-1.png">
-      <h2 style="color:white;margin:0">کریم ہومیوپیتھک کلینک</h2>
-    </div>
+<div class="topbar">
 
-    <div class="menu-area">
+<a href="Doctor.html" class="admin-btn">
 
-  <div class="navbar">
-  <a href="appointment.html">Home</a>
-  <a href="about.html">About Us</a>
-  <a href="testimonials.html">Testimonials</a>
-  <a href="healthtips.html">Health Tips</a>
-  <a href="services.html">Services</a>
-  <a href="contact.html">Contact</a>
-  <a class="btn" href="index.html">Diseases</a>
-  </div>
-</div>
-  <div class="tagline">قدرتی اور محفوظ ہومیوپیتھک علاج</div>
+Admin
+
+</a>
 
 </div>
 
-  </div>
-</div>
+<div class="main-card">
 
+<div id="welcomeStep" class="step active">
 
-<!-- HERO -->
-<div class="hero">
+<h1 class="title">کریم ہومیوپیتھک کلینک</h1>
 
-  <!-- 🎬 Background Video -->
-  <video autoplay muted loop playsinline>
-    <source src="media/hero.mp4" type="video/mp4">
-  </video>
+<p class="subtitle">
 
-  <!-- 🌿 Philosophy Footer Text -->
-<div class="philo-footer" id="philoFooter">
+مریض اپنی علامات آسانی سے منتخب کریں۔<br>
+تمام معلومات محفوظ اور خفیہ رہیں گی۔
 
-  <a href="https://wa.me/923464650638" target="_blank" class="wa-mini-btn">
-    WhatsApp
-  </a>
-
-  <span id="philoText"></span>
-
-</div>
-
-
-  <div class="hero-reel">
-      <div class="poster-track" id="posterTrack"></div>
-  </div>
-<div class="news-ticker">
-   <div class="ticker-track" id="tickerTrack"></div>
-</div>
-<p class="hero-text">
-بار بار لوٹنے والے مسائل صرف وقتی علاج سے ختم نہیں ہوتے۔<br>
-اصل وجہ تک پہنچنا ضروری ہوتا ہے۔<br>
-یہاں توجہ علامات دبانے کے بجائے جسمانی توازن بحال کرنے پر ہے۔<br>
-مقصد وقتی سکون نہیں، دیرپا صحت ہے۔
 </p>
 
-<div class="search-box">
+<div class="info-box">
 
-  <input type="text" id="searchInput" placeholder="🔍 بیماری تلاش کریں..."
-       onkeyup="handleSearch(event)">
+<b>فارم بھرنے کا طریقہ (اہم ہدایات):</b><br>
+
+✔ پہلے اپنی basic معلومات بھر کر “اگلا مرحلہ” دبائیں<br>
+
+✔ ہر سیکشن (دماغ، اعصاب وغیرہ) کو ایک ایک کر کے کھولیں<br>
+
+✔ جو علامات موجود ہوں صرف انہیں منتخب کریں<br>
+
+✔ ایک سے زیادہ علامات منتخب کی جا سکتی ہیں (multi select)<br>
+
+✔ غلط یا غیر متعلق علامات منتخب نہ کریں<br>
+
+✔ جتنی درست selection ہوگی، ریمیڈی اتنی بہتر آئے گی<br>
+
 </div>
-</div>
+<div style="text-align:center">
 
+<button class="next-btn" onclick="nextStep(1)">
+فارم شروع کریں
+</button>
 
-<!-- Layout -->
-<div class="container">
-
-<div class="sidebar">
-<h3>بیماریاں</h3>
-<div id="diseaseList"></div>
-</div>
-
-<div style="flex:1;">
-<div class="cards" id="cards"></div>
-
-<div id="detailSection">
-<button onclick="backToList()">⬅ واپس</button>
-<div id="detailBox"></div>
-</div>
-</div>
-
-<div class="sidebar">
-<h3>کیٹیگری</h3>
-<div id="categoryList"></div>
 </div>
 
 </div>
+
+
+
+<div id="step1" class="step">
+
+<h2 class="section-title">مریض کی معلومات</h2>
+
+<label>Slip No</label>
+<input type="text" id="patientID" readonly>
+
+<label>مریض کا نام</label>
+<input type="text" id="name">
+
+<div class="grid-2">
+
+<div>
+
+<label>عمر</label>
+<input type="number" id="age">
+
+</div>
+
+<div>
+
+<label>جنس</label>
+
+<select id="gender">
+
+<option value="">منتخب کریں</option>
+<option>مرد</option>
+<option>عورت</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="grid-2">
+
+<div>
+
+<label>وزن</label>
+<input type="text" id="weight">
+
+</div>
+
+<div>
+
+<label>موبائل نمبر</label>
+<input type="text" id="mobile">
+
+</div>
+
+</div>
+
+<div class="navigation">
+
+<button class="next-btn" onclick="validatePatientInfo()">
+اگلا مرحلہ
+</button>
+
+</div>
+
+</div>
+
+
+
+<div id="dynamicSections"></div>
+
+
+
+<div class="success" id="successBox">
+
+<h2>فارم کامیابی سے جمع ہو گیا</h2>
+
+<p>
+
+آپ کی معلومات محفوظ کر لی گئی ہیں۔<br>
+جلد آپ سے رابطہ کیا جائے گا۔
+
+</p>
+
+</div>
+
+</div>
+
+
 
 <script>
 
-const API_URL="https://script.google.com/macros/s/AKfycbzBociJv8t2D1aq_ESWtX7ULr6SxmsV9GDE2YjYOZzn7IdPIhQlGojjCtGCZ2cry5Tp/exec";
-const SLIDER_API="https://script.google.com/macros/s/AKfycbyhZRYLBsobQBJv_xvyGr7STaklkLa8oAZKwfaGJbG1_5KN8k89rmYj-MJfFKeJb1Db/exec";
-const TICKER_API="https://script.google.com/macros/s/AKfycbz-j7aWwdXc-7UavXww03U-J83D3fbWg2YX6y8tnplvZ68eZsDfJHRS-xb8q2CV1nvs/exec";
+const API_URL="https://script.google.com/macros/s/AKfycbyaQi0ot_VK9x2dYXnfJGkBB8nDfBIQxhoKH4tGEG7TKolrlELAHnw-LWJUIReI5WdlRA/exec";
 
-let allData=[];
-let tickerData=[];
-let originalData = [];
-let currentPage = 1;
-const itemsPerPage = 10;
+const sections=[
 
-function buildWhatsAppMessage(item){
-  let msg = "";
+{
+title:'🟠 SECTION 1 — دماغ، ذہن، اعصاب اور نیند',
+description:'اس حصے میں دماغ، اعصاب، ذہنی کیفیت اور نیند کی علامات شامل ہیں۔',
+parts:['دماغ','اعصاب','نیند','مزاج']
+},
 
-  for (const key in item) {
-    if(item[key] 
-       && key !== "تصویر_لنک" 
-       && key !== "Pic" 
-       && key !== "آئی_ڈی" 
-       && key !== "ID"){
-      msg += `*${formatKey(key)}*\n${item[key]}\n\n`;
-    }
-  }
+{
+title:'🟡 SECTION 2 — سر، آنکھ، کان، ناک، منہ اور گلا',
+description:'اس حصے میں سر، آنکھ، کان، ناک اور گلے کی علامات شامل ہیں۔',
+parts:['سر','آنکھ','کان','ناک','منہ','نرخرہ']
+},
 
-  msg += "مزید پڑھیں 👇\n" + window.location.origin;
-  return msg;
+{
+title:'🟢 SECTION 3 — سانس، کھانسی، سینہ اور دل',
+description:'اس حصے میں سانس، سینہ اور دل کی علامات شامل ہیں۔',
+parts:['سانس','دل','شریانی نظام']
+},
+
+{
+title:'🟣 SECTION 4 — معدہ، جگر، آنتیں اور نظام ہضم',
+description:'اس حصے میں معدہ، جگر اور نظام ہضم کی علامات شامل ہیں۔',
+parts:['معدہ','شکم','پاخانہ']
+},
+
+{
+title:'🔵 SECTION 5 — پیشاب، مردانہ و زنانہ نظام',
+description:'اس حصے میں پیشاب اور تولیدی نظام کی علامات شامل ہیں۔',
+parts:['نظام بول','مردانہ','زنانہ']
+},
+
+{
+title:'🔴 SECTION 6 — جسم، جلد، ہڈیاں اور عمومی علامات',
+description:'اس حصے میں عمومی جسمانی علامات شامل ہیں۔',
+parts:['جلد','حرکت کا نظام','ہاتھ پاوں کے اعضا','عمومی']
 }
 
-
-async function loadSlider(){
-  const res = await fetch(SLIDER_API);
-  const data = await res.json();
-
-  let html="";
-  data.forEach((d,i)=>{
-    html+=`<img src="${d.Link}" class="${i==0?'active':''}">`;
-  });
-
-  const track=document.getElementById("posterTrack");
-  track.innerHTML=html;
-
-  const images=document.querySelectorAll("#posterTrack img");
-  let index=0;
-
-  setInterval(()=>{
-    images[index].classList.remove("active");
-    index=(index+1)%images.length;
-    images[index].classList.add("active");
-  },6000); // ہر 3 سیکنڈ بعد تصویر بدلے گی
-}
-
-async function loadData(){
-  const res=await fetch(API_URL);
-  const data=await res.json();
-  renderData(data);
-}
-
-
-function renderCards(){
-
-  let start = (currentPage - 1) * itemsPerPage;
-  let end = start + itemsPerPage;
-
-  let pageData = allData.slice(start, end);
-
-  let html = "";
-
-  pageData.forEach(d=>{
-    html += `
-    <div class="card" onclick="goDetail('${d.آئی_ڈی}')">
-      <img src="${d.تصویر_لنک}">
-      <div class="card-content">
-        <h3>${d.بیماری_کا_نام}</h3>
-        <p>${d.مختصر_تفصیل}</p>
-
-        <button onclick="event.stopPropagation(); goDetail('${d.آئی_ڈی}')">تفصیل</button>
-        <button onclick="event.stopPropagation(); goDetail('${d.آئی_ڈی}')">علاج</button>
-        <button onclick="event.stopPropagation(); goDetail('${d.آئی_ڈی}')">مزید</button>
-
-      </div>
-    </div>`;
-  });
-
-  html += `
-  <div style="text-align:center; margin-top:20px;">
-    <button onclick="prevPage()">⬅ Previous</button>
-    <span style="margin:0 10px;">Page ${currentPage}</span>
-    <button onclick="nextPage()">Next ➡</button>
-  </div>
-  `;
-
-  document.getElementById("cards").innerHTML = html;
-}
-
-
-
-function renderData(data){
-  allData=data;
-  originalData = data;   // ⭐ یہ add کریں
- 
-  renderCards();   // ⭐ اب الگ function call ہوگا
-
-  let diseaseHTML="",categories=new Set();
-
-  data.forEach(d=>{
-    diseaseHTML+=`<div class="list-item" onclick="filterByDisease('${d.بیماری_کا_نام}')">${d.بیماری_کا_نام}</div>`;
-    if(d.کیٹیگری) categories.add(d.کیٹیگری);
-  });
-
-  let categoryHTML="";
-  categories.forEach(c=>{
-    categoryHTML+=`<div class="list-item" onclick="filterCategory('${c}')">${c}</div>`;
-  });
-
-  diseaseList.innerHTML=diseaseHTML;
-  categoryList.innerHTML=categoryHTML;
-
-
-}
-
-function goDetail(id){
-
-  const item = allData.find(d => d.آئی_ڈی == id);
-
-
-  cards.style.display="none";
-  detailSection.style.display="block";
-
-  let html = `<img src="${item.تصویر_لنک}">`;
-
-  // ⭐ All Google Sheet columns auto
-  for (const key in item) {
-    if(item[key] && key !== "تصویر_لنک" && key !== "آئی_ڈی"){
-      html += `<p><b>${formatKey(key)}:</b> ${item[key]}</p>`;
-    }
-  }
-
-const waMessage = buildWhatsAppMessage(item);
-html += createShareBar(item.بیماری_کا_نام, waMessage, item.تصویر_لنک);
-
-  detailBox.innerHTML = html;
-
-  setTimeout(()=>{
-    detailSection.scrollIntoView({behavior:"smooth"});
-  },100);
-}
-function formatKey(key){
-
-  const map = {
-    Shartdetail: "شرائط کی تفصیل",
-    Tital1: "عنوان",
-    fulldetail: "مکمل تفصیل",
-    Pic: "تصویر",
-    ID: "آئی ڈی"
-  };
-
-  return map[key] || key;
-}
-
-function goTickerDetail(id){
-
-  const item = tickerData.find(d => d.ID == id);
-
-  cards.style.display="none";
-  detailSection.style.display="block";
-
-  let html = `<img src="${item.Pic}">`;
-
-  for (const key in item) {
-    if(item[key] && key !== "Pic" && key !== "ID"){
-      html += `<p><b>${formatKey(key)}:</b> ${item[key]}</p>`;
-    }
-  }
-
-const waMessage = buildWhatsAppMessage(item);
-html += createShareBar(item.Tital1, waMessage, item.Pic);
-
-  detailBox.innerHTML = html;
-
-  setTimeout(()=>{
-    detailSection.scrollIntoView({behavior:"smooth"});
-  },100);
-}
-
-
-function backToList(){
-  detailSection.style.display="none";
-  cards.style.display="block";
-}
-
-
-function nextPage(){
-  if(currentPage * itemsPerPage < allData.length){
-    currentPage++;
-    renderCards();
-  }
-}
-
-function prevPage(){
-  if(currentPage > 1){
-    currentPage--;
-    renderCards();
-  }
-}
-
-
-
-function filterCategory(cat){
-cards.style.display="block";
-detailSection.style.display="none";
-
-  allData = originalData.filter(d => d.کیٹیگری === cat);
-
-  currentPage = 1;
-  renderCards();
-
-  // ⬇ scroll
-  setTimeout(()=>{
-    document.getElementById("cards")
-      .scrollIntoView({behavior:"smooth", block:"start"});
-  },100);
-}
-function filterByDisease(name){
-cards.style.display="block";
-detailSection.style.display="none";
-
-  allData = originalData.filter(d => 
-    (d.بیماری_کا_نام || "").includes(name)
-  );
-
-  currentPage = 1;
-  renderCards();
-
-  // ⬇ scroll to cards
-  setTimeout(()=>{
-    document.getElementById("cards")
-      .scrollIntoView({behavior:"smooth", block:"start"});
-  },100);
-}
-
-
-async function loadTicker(){
-
-  const res = await fetch(TICKER_API);
-  const data = await res.json();
-
-  tickerData = data;
-
-  let html="";
-
-  data.forEach(row=>{
-    html += `<span onclick="goTickerDetail('${row.ID}')">${row.Tital1}</span>`;
-  });
-
-  document.getElementById("tickerTrack").innerHTML = html;
-}
-
-loadData();
-loadSlider();
-loadTicker();
-function searchDisease(){
-cards.style.display="block";
-detailSection.style.display="none";
-
-  let input = document.getElementById("searchInput").value.trim().toLowerCase();
-
-  if(input === ""){
-    allData = originalData;
-    renderCards();
-    return;
-  }
-
-  allData = originalData.filter(item => {
-    let name = (item.بیماری_کا_نام || "").toString().toLowerCase();
-    return name.includes(input);
-  });
-
-  currentPage = 1;
-  renderCards();
-}
-  // 👇 یہ add کریں
-  setTimeout(()=>{
-    document.getElementById("cards")
-      .scrollIntoView({behavior:"smooth", block:"start"});
-  },100);
-
-
-
-// 👇 یہ نیا function اسی کے نیچے لگائیں
-function handleSearch(e){
-
-  searchDisease(); // پہلے فلٹر کرے
-
-  if(e.key === "Enter"){
-    
-    let firstCard = document.querySelector(".card");
-
-    if(firstCard){
-      firstCard.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-
-      firstCard.style.boxShadow = "0 0 15px gold";
-
-      setTimeout(()=>{
-        firstCard.style.boxShadow = "";
-      },1500);
-    }
-
-  }
-}
-const phrases = [
-"🌿 شفا جسم کی اندرونی قوت سے جنم لیتی ہے",
-"⚖️ اصل علاج علامات نہیں، وجہ کا خاتمہ ہے",
-"🌱 فطرت ہی سب سے بڑی معالج ہے",
-"💧 توازن بحال ہو تو بیماری خود کمزور ہو جاتی ہے",
-"🕊️ ہومیوپیتھی جسم کو نہیں، انسان کو دیکھتی ہے"
 ];
 
-let i = 0;
+let diseasesData={};
+let selectedDiseases=[];
+let currentStep=0;
 
-function rotateText(){
-  const el = document.getElementById("philoText");
 
-  if(!el) return;
-
-  el.style.opacity = 0;
-
-  setTimeout(()=>{
-    el.innerText = phrases[i];
-    el.style.opacity = 1;
-    i = (i + 1) % phrases.length;
-  }, 400);
+/* =========================
+SAFE ID HELPER
+========================= */
+function makeSafeId(text){
+return text
+.replace(/\s+/g,'_')
+.replace(/[^\u0600-\u06FFa-zA-Z0-9_]/g,'');
 }
 
-rotateText();
-setInterval(rotateText, 3500);
 
-function createShareBar(title, text, image){
+/* =========================
+LOAD PATIENT ID
+========================= */
+async function loadPatientID(){
 
-  const pageUrl = window.location.href;
+const res=await fetch(API_URL+"?action=getPatientID");
+const data=await res.json();
 
-  const shareText =
-`*${title}*
+document.getElementById('patientID').value=data.id;
 
-${text}
-
-مزید پڑھیں 👇
-${pageUrl}`;
-
-  const wa = "https://wa.me/?text=" + encodeURIComponent(shareText);
-  const fb = "https://www.facebook.com/sharer/sharer.php?u=" + pageUrl;
-  const tw = "https://twitter.com/intent/tweet?url=" + pageUrl;
-  const tg = "https://t.me/share/url?url=" + pageUrl;
-
-  return `
-  <div class="share-bar">
-    <h3>شیئر کریں</h3>
-    <div class="share-icons">
-      <a class="wa" href="${wa}" target="_blank">WhatsApp</a>
-      <a class="fb" href="${fb}" target="_blank">Facebook</a>
-      <a class="tw" href="${tw}" target="_blank">Twitter</a>
-      <a class="tg" href="${tg}" target="_blank">Telegram</a>
-      <a class="copy" onclick="copyLink()">Copy Link</a>
-    </div>
-  </div>`;
 }
 
-function copyLink(){
-  navigator.clipboard.writeText(window.location.href);
-  alert("Link Copied!");
-}
-function createShareBar(title, text, image){
 
-  const url = window.location.href;   // ⭐ اصل حل یہاں ہے
+/* =========================
+LOAD DISEASES
+========================= */
+async function loadDiseases(){
 
-  const shareText = encodeURIComponent(title + " - " + text);
-  const shareURL = encodeURIComponent(url);
+const res=await fetch(API_URL+"?action=getDiseases");
+diseasesData=await res.json();
 
-  return `
-  <div class="share-bar">
-    <b>شیئر کریں:</b>
-    <div class="share-icons">
+createSections();
 
-      <a class="wa" target="_blank"
-      href="https://wa.me/?text=${shareText}%20${shareURL}">
-      WhatsApp
-      </a>
-
-      <a class="fb" target="_blank"
-      href="https://www.facebook.com/sharer/sharer.php?u=${shareURL}">
-      Facebook
-      </a>
-
-      <a class="tw" target="_blank"
-      href="https://twitter.com/intent/tweet?text=${shareText}&url=${shareURL}">
-      Twitter
-      </a>
-
-      <a class="tg" target="_blank"
-      href="https://t.me/share/url?url=${shareURL}&text=${shareText}">
-      Telegram
-      </a>
-
-      <a class="copy" onclick="copyLink()">Copy Link</a>
-
-    </div>
-  </div>
-  `;
 }
 
-function copyLink(){
-  navigator.clipboard.writeText(window.location.href);
-  alert("Link copied!");
+
+/* =========================
+CREATE SECTIONS
+========================= */
+function createSections(){
+
+const container=document.getElementById('dynamicSections');
+container.innerHTML='';
+
+sections.forEach((sec,index)=>{
+
+const stepNo=index+2;
+
+let html=`
+<div class="step" id="section${stepNo}">
+
+<h2 class="section-title">${sec.title}</h2>
+
+<p class="section-description">${sec.description}</p>
+
+<div class="parts-tabs">
+`;
+
+sec.parts.forEach((part,pindex)=>{
+
+const safePart=makeSafeId(part);
+
+html+=`
+<div class="part-btn ${pindex===0?'active-tab':''}"
+onclick="showPart('${safePart}',this,'section${stepNo}')">
+${part}
+</div>
+`;
+});
+
+html+=`</div>`;
+
+/* PART CONTENTS */
+sec.parts.forEach((part,pindex)=>{
+
+const safePart=makeSafeId(part);
+
+html+=`
+<div class="part-content ${pindex===0?'active':''}"
+id="content-${safePart}">
+
+<h3 style="margin-top:10px;color:#ffcf66">${part}</h3>
+
+<div class="disease-box" id="box-${safePart}"></div>
+
+</div>
+`;
+});
+
+html+=`
+<div class="navigation">
+
+<button class="prev-btn" onclick="prevStep(${stepNo})">پچھلا</button>
+
+<button class="next-btn" onclick="nextSection(${stepNo})">اگلا</button>
+
+</div>
+
+</div>
+`;
+
+container.innerHTML+=html;
+
+});
+
+
+/* FINAL STEP */
+const finalStepNo=sections.length+2;
+
+container.innerHTML+=`
+<div class="step" id="finalStep">
+
+<h2 class="section-title">فارم جمع کریں</h2>
+
+<p class="section-description">تمام منتخب علامات محفوظ کی جائیں گی۔</p>
+
+<div class="navigation">
+
+<button class="prev-btn" onclick="prevStep(${finalStepNo})">پچھلا</button>
+
+<button class="next-btn" onclick="submitForm()">فارم سبمٹ کریں</button>
+
+</div>
+
+<div class="loader" id="loader">محفوظ کیا جا رہا ہے...</div>
+
+</div>
+`;
+
+fillDiseases();
+
 }
+
+
+/* =========================
+FIXED DROPDOWN (OPEN / CLOSE)
+========================= */
+function fillDiseases(){
+
+Object.keys(diseasesData).forEach(part=>{
+
+const safePart=makeSafeId(part);
+const diseaseBox=document.getElementById('box-'+safePart);
+
+if(!diseaseBox) return;
+
+diseaseBox.innerHTML='';
+
+/* CREATE WRAPPER */
+const wrapper = document.createElement('div');
+
+/* HEADER */
+const header = document.createElement('div');
+header.className = 'dropdown-header';
+header.innerHTML = `<span>${part}</span><span>▼</span>`;
+
+/* LIST */
+const list = document.createElement('div');
+list.className = 'dropdown-list';
+list.id = 'list-'+safePart;
+
+/* TOGGLE */
+header.onclick = () => {
+
+  /* close others */
+  document.querySelectorAll('.dropdown-list').forEach(el=>{
+    if(el !== list) el.classList.remove('show');
+  });
+
+  list.classList.toggle('show');
+};
+
+wrapper.appendChild(header);
+wrapper.appendChild(list);
+diseaseBox.appendChild(wrapper);
+
+const listData = diseasesData[part] || [];
+
+listData.forEach((disease,index)=>{
+
+const id = safePart+'_'+index;
+
+const item=document.createElement('div');
+item.className='checkbox-item';
+
+item.innerHTML=`
+<input type="checkbox" id="${id}" value="${disease}">
+<label for="${id}">${disease}</label>
+`;
+
+item.querySelector('input').onchange=(e)=>{
+
+if(e.target.checked){
+
+if(!selectedDiseases.includes(disease)){
+selectedDiseases.push(disease);
+}
+
+}else{
+
+selectedDiseases =
+selectedDiseases.filter(d=>d!==disease);
+
+}
+
+};
+
+list.appendChild(item);
+
+});
+
+});
+
+}
+
+
+/* =========================
+SHOW PART
+========================= */
+function showPart(part,btn,sectionId){
+
+const section=document.getElementById(sectionId);
+
+section.querySelectorAll('.part-content')
+.forEach(b=>b.classList.remove('active'));
+
+section.querySelectorAll('.part-btn')
+.forEach(b=>b.classList.remove('active-tab'));
+
+document.getElementById('content-'+part)
+.classList.add('active');
+
+btn.classList.add('active-tab');
+
+}
+
+
+/* =========================
+NAVIGATION
+========================= */
+function nextStep(step){
+
+document.querySelectorAll('.step')
+.forEach(s=>s.classList.remove('active'));
+
+document.getElementById('step'+step)
+.classList.add('active');
+
+currentStep=step;
+
+}
+
+function prevStep(step){
+
+document.querySelectorAll('.step')
+.forEach(s=>s.classList.remove('active'));
+
+document.getElementById('section'+(step-1))
+.classList.add('active');
+
+}
+
+function nextSection(step){
+
+document.querySelectorAll('.step')
+.forEach(s=>s.classList.remove('active'));
+
+if(step==7){
+document.getElementById('finalStep').classList.add('active');
+}else{
+document.getElementById('section'+(step+1)).classList.add('active');
+}
+
+}
+
+
+/* =========================
+VALIDATION
+========================= */
+function validatePatientInfo(){
+
+const name=document.getElementById('name').value.trim();
+const age=document.getElementById('age').value.trim();
+const gender=document.getElementById('gender').value;
+const mobile=document.getElementById('mobile').value.trim();
+
+if(!name || !age || !gender || !mobile){
+alert('تمام معلومات درج کریں');
+return;
+}
+
+if(mobile.length!=11){
+alert('موبائل نمبر 11 ہندسوں پر مشتمل ہو');
+return;
+}
+
+document.querySelectorAll('.step')
+.forEach(s=>s.classList.remove('active'));
+
+document.getElementById('section2').classList.add('active');
+
+}
+
+
+/* =========================
+SUBMIT FORM
+========================= */
+async function submitForm(){
+
+document.getElementById('loader').style.display='block';
+
+const res=await fetch(API_URL+'?action=getAnalysis&diseases='+
+encodeURIComponent(selectedDiseases.join(',')));
+
+const analysis=await res.json();
+
+const payload={
+
+patientID:document.getElementById('patientID').value,
+name:document.getElementById('name').value,
+age:document.getElementById('age').value,
+gender:document.getElementById('gender').value,
+weight:document.getElementById('weight').value,
+mobile:document.getElementById('mobile').value,
+
+parts:'',
+diseases:selectedDiseases,
+
+remedyResult:JSON.stringify(analysis.remedies),
+remedyCount:analysis.remedies.length,
+
+symptomResult:JSON.stringify(analysis.symptoms),
+symptomCount:analysis.symptomCount
+
+};
+
+await fetch(API_URL,{
+method:'POST',
+body:JSON.stringify(payload)
+});
+
+const whatsappText=`
+کریم ہومیوپیتھک کلینک
+
+Patient ID: ${payload.patientID}
+Name: ${payload.name}
+Age: ${payload.age}
+Gender: ${payload.gender}
+Mobile: ${payload.mobile}
+
+Diseases: ${selectedDiseases.join(', ')}
+`;
+
+window.open(
+`https://wa.me/923464650638?text=${encodeURIComponent(whatsappText)}`,
+'_blank'
+);
+
+document.querySelectorAll('.step')
+.forEach(s=>s.classList.remove('active'));
+
+document.getElementById('successBox').style.display='block';
+
+}
+
+
+/* INIT */
+loadPatientID();
+loadDiseases();
+
 </script>
-
 </body>
-</html> 
+</html>
